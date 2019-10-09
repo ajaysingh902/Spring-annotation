@@ -4,10 +4,10 @@ import com.stackroute.domain.Actor;
 import com.stackroute.domain.Movie;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class AppConfig {
-
     @Bean
     public Actor ActorObj(){
         Actor act=new Actor();
@@ -16,7 +16,10 @@ public class AppConfig {
         act.setAge(18);
         return  act;
     }
-    @Bean
+
+
+    @Bean(name={"MovieA","MovieB"})
+    @Scope("prototype")
     public Movie movie()
     {
         return new Movie(ActorObj());

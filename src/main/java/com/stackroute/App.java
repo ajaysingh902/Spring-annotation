@@ -14,8 +14,12 @@ public class App
     {
         ApplicationContext context=new AnnotationConfigApplicationContext(AppConfig.class);
 //        AppConfig appConfig=context.getBean();
-        Movie movie=context.getBean(Movie.class);
-        movie.display();
+        Movie moviea=context.getBean("MovieA",Movie.class);
+        Movie movieb=context.getBean("MovieB",Movie.class);
+
+        moviea.display();
+        movieb.display();
+        System.out.println(moviea==movieb);
 
     }
 
